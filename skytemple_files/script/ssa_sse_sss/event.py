@@ -24,7 +24,7 @@ class SsaEvent(AutoString):
         self.trigger_width = trigger_width
         self.trigger_height = trigger_height
         # If the table start is 0, switch to "set id mode"
-        if trigger_table_start == 0:
+        if trigger_table_start == 0 or trigger_table_start is None:
             self.trigger_id = trigger_pointer
         else:
             self.trigger_id = int((trigger_pointer - trigger_table_start) / TRIGGER_ENTRY_LEN)
